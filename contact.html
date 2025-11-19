@@ -69,6 +69,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            
         }
 
         .btn {
@@ -123,13 +124,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-weight: bold;
         }
 
-        .logo {
+        .logo img {
             font-family: 'Poppins', sans-serif;
-            font-weight: 800;
+            font-weight: 10;
+             height: 45px;
             font-size: 1.8rem;
-            color: var(--secondary);
+            color: #EC008C;
             text-decoration: none;
         }
 
@@ -172,10 +175,20 @@
 
         /* Page Hero */
         .page-hero {
-            padding: 160px 0 80px;
-            background: var(--gradient);
-            color: var(--white);
-            text-align: center;
+           
+           background-image: url("imageB.jpg");
+    background-size: cover;
+    background-position: center 10%;
+    height: 450px;           /* increase height so more of image shows */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;   /* move items to the top */
+    align-items: center;
+    text-align: center;
+
+    padding-top: 180px;   
+                                           
         }
 
         .page-hero h1 {
@@ -194,6 +207,7 @@
         /* Contact Section */
         .contact-section {
             padding: 100px 0;
+            
         }
 
         .contact-container {
@@ -362,7 +376,7 @@
         /* Support Section */
         .support-section {
             padding: 100px 0;
-            background: var(--light-gray);
+           background: #bdb6c7;
         }
 
         .support-cards {
@@ -406,6 +420,7 @@
             background: var(--gradient);
             color: var(--white);
             text-align: center;
+             background: #bdb6c7;
         }
 
         .cta-section h2 {
@@ -580,7 +595,9 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="home.html" class="logo">We<span>Call</span></a>
+                <a href="home.html" class="logo">
+    <img src="welogo.jpg" alt="WeCall Logo">
+</a>
                 <ul class="nav-links">
                     <li><a href="home.html">Home</a></li>
                     <li><a href="features.html">Features</a></li>
@@ -613,29 +630,28 @@
                     <div class="contact-card">
                         <h3><i class="fas fa-map-marker-alt"></i> Our Office</h3>
                         <ul class="contact-details">
-                            <li><i class="fas fa-building"></i> MPC Plaza, Floor 8</li>
+                            <li><i class="fas fa-building"></i> M Peace Plaza, 8th Floor, Block B, Kigali - Rwanda</li>
                             <li><i class="fas fa-city"></i> Business District</li>
-                            <li><i class="fas fa-flag"></i> Lagos, Nigeria</li>
+                            <li><i class="fas fa-flag"></i> Kigali, Rwanda</li>
                         </ul>
                     </div>
                     
                     <div class="contact-card">
                         <h3><i class="fas fa-phone-alt"></i> Contact Numbers</h3>
                         <ul class="contact-details">
-                            <li><i class="fas fa-phone"></i> Main: +234 (0) 700 123 4567</li>
-                            <li><i class="fas fa-headset"></i> Support: +234 (0) 700 123 4568</li>
-                            <li><i class="fas fa-shopping-cart"></i> Sales: +234 (0) 700 123 4569</li>
-                            <li><i class="fas fa-fax"></i> Fax: +234 (0) 700 123 4570</li>
+                            <li><i class="fas fa-phone"></i> Main: +250 (0) 788 888 8888</li>
+                            <li><i class="fas fa-headset"></i> Support: +250 (0) 700 123 4568</li>
+                            <li><i class="fas fa-shopping-cart"></i> Sales: +250 (0) 700 123 4569</li>
+                        <!----    <li><i class="fas fa-fax"></i> Fax: +234 (0) 700 123 4570</li>  -->
                         </ul>
                     </div>
                     
                     <div class="contact-card">
                         <h3><i class="fas fa-envelope"></i> Email Addresses</h3>
                         <ul class="contact-details">
-                            <li><i class="fas fa-envelope"></i> General: info@WeCall.com</li>
-                            <li><i class="fas fa-shopping-cart"></i> Sales: sales@WeCall.com</li>
+                            <li><i class="fas fa-envelope"></i> General: info@wecall.com</li>
                             <li><i class="fas fa-headset"></i> Support: support@WeCall.com</li>
-                            <li><i class="fas fa-briefcase"></i> Careers: careers@WeCall.com</li>
+                            
                         </ul>
                     </div>
                     
@@ -716,9 +732,9 @@
                 </div>
                 <div class="map-overlay">
                     <h3>WeCall Headquarters</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> MPC Plaza, Floor 8</p>
+                    <p><i class="fas fa-map-marker-alt"></i> M Peace Plaza, 8th Floor </p>
                     <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</p>
-                    <p><i class="fas fa-phone"></i> +234 (0) 700 123 4567</p>
+                    <p><i class="fas fa-phone"></i> +250 (0) 788 88 888</p>
                 </div>
             </div>
         </div>
@@ -738,17 +754,17 @@
                     </div>
                     <h3>Phone Support</h3>
                     <p>Speak directly with our support team for immediate assistance.</p>
-                    <p><strong>+234 (0) 700 123 4568</strong></p>
-                    <p>Available 24/7 for Premium customers</p>
+                    <p><strong>+250 (0) 700 123 4568</strong></p>
+                    <p>Available 24/7 to provide services</p>
                 </div>
                 <div class="support-card">
                     <div class="support-icon">
                         <i class="fas fa-comments"></i>
                     </div>
                     <h3>Live Chat</h3>
-                    <p>Get instant answers through our live chat system.</p>
+                    <p>Get instant answers through our Agents.</p>
                     <p><strong>Available on our website</strong></p>
-                    <p>Mon-Fri: 8:00 AM - 8:00 PM</p>
+                    <p>Available 24/7 to provide services</p>
                 </div>
                 <div class="support-card">
                     <div class="support-icon">
@@ -756,8 +772,8 @@
                     </div>
                     <h3>Email Support</h3>
                     <p>Send us detailed queries and receive comprehensive responses.</p>
-                    <p><strong>support@WeCall.com</strong></p>
-                    <p>Response within 4 hours</p>
+                    <p><strong>support@wecall.com</strong></p>
+                    <p>Receive Real-Time Response </p>
                 </div>
             </div>
         </div>
@@ -807,15 +823,15 @@
                 <div class="footer-column">
                     <h3>Contact</h3>
                     <ul class="footer-links">
-                        <li><a href="#">MPC Plaza, Floor 8</a></li>
-                        <li><a href="#">+234 (0) 700 123 4567</a></li>
-                        <li><a href="#">info@WeCall.com</a></li>
-                        <li><a href="#">Sales: sales@WeCall.com</a></li>
+                  <!----      <li><a href="#">MPC Plaza, Floor 8</a></li> -->
+                        <li><a href="#">+250 (0) 700 123 4567</a></li>
+                        <li><a href="#">info@wecall.com</a></li>
+                    <!---- <li><a href="#">Sales: sales@WeCall.com</a></li>  -->
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 WeCall. All rights reserved.</p>
+                <p>&copy; 2025 WeCall. All rights reserved.</p>
             </div>
         </div>
     </footer>
