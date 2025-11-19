@@ -146,18 +146,6 @@
             height: 40px;
             width: auto;
         }
-        .logo img {
-            display: block;
-            height: 40px;
-            width: auto;
-            object-fit: contain;
-        }
-        .footer-logo img {
-            display: block;
-            height: 36px;
-            width: auto;
-            object-fit: contain;
-        }
 
         .nav-links {
             display: flex;
@@ -209,12 +197,20 @@
         }
 
         /* Page Hero - Updated */
-        .page-hero {
-            padding: 120px 0 80px; /* Reduced height */
+        /* .page-hero {
+            padding: 120px 0 80px; 
             position: relative;
             overflow: hidden;
-            background: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat; /* Removed overlay */
-            min-height: 400px; /* Set a minimum height */
+            background: url('pricing.png') center/cover no-repeat;
+            min-height: 400px; /
+        } */
+
+        .page-hero {
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+            background: url('pricing.png') center/cover no-repeat;
+            min-height: 400px;
         }
 
         /* Pricing Section */
@@ -716,28 +712,7 @@
 </head>
 <body>
     <!-- Header & Navigation -->
- <header>
-    <div class="container">
-        <nav class="navbar">
-            <a href="home.html" class="logo"><img src="assets/wecall.jpg" alt="WeCall logo"></a>
-            <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="pricing.html" class="active">Pricing</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="nav-cta">
-                <a href="demo.html" class="btn btn-primary">Book Demo</a>
-            </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </div>
-</header>
-
-    <!-- Page Hero -->
-    <section class="page-hero">
+    <header>
         <div class="container">
             <nav class="navbar">
                 <a href="home.html" class="logo">
@@ -1059,8 +1034,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <a href="home.html" class="footer-logo"><img src="assets/wecall.jpg" alt="WeCall logo"></a>
-                    <p>Never lose a customer again with WeCall's reliable cloud Calling solutions. Connect with customers anytime, anywhere.</p>
+                    <a href="home.html" class="footer-logo">We<span>Call</span></a>
+                    <p>Never lose a customer again with WeCall's reliable cloud calling solutions. Connect with customers anytime, anywhere.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
