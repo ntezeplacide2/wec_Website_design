@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon: uses a small SVG so the CRM mark appears in the browser tab -->
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/favicon.svg">
     <style>
         :root {
             --primary: #EC008C;
@@ -17,7 +20,10 @@
             --dark-gray: #8C8C9A;
             --white: #FFFFFF;
             --lavender: #E6E6FA;
-            --gradient: linear-gradient(135deg, #EC008C 0%, #8A2BE2 50%, #4B0082 100%);
+            /* calmer page background gradient (very light magenta wash) */
+            --gradient: linear-gradient(180deg, rgba(236,0,140,0.06) 0%, rgba(255,244,250,0.6) 50%, rgba(255,255,255,1) 100%);
+            /* strong magenta gradient reserved for buttons / accents */
+            --btn-gradient: linear-gradient(135deg, #EC008C 0%, #8A2BE2 60%);
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
             --radius: 12px;
@@ -85,7 +91,8 @@
         }
 
         .btn-primary {
-            background: var(--gradient);
+            /* keep the button vibrant (magenta) while backgrounds are calmer */
+            background: var(--btn-gradient);
             color: var(--white);
             box-shadow: var(--shadow);
         }
@@ -133,8 +140,22 @@
             text-decoration: none;
         }
 
+        /* when using an image logo, keep the link aligned and size the image */
         .logo span {
             color: var(--primary);
+        }
+
+        .logo img {
+            display: block;
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+        .footer-logo img {
+            display: block;
+            height: 36px;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -154,11 +175,32 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            /* on hover show a complementary purple for mixed-color accents */
+            color: #8A2BE2;
         }
 
         .nav-cta {
             margin-left: 2rem;
+        }
+
+        /* Make the Download App CTA in the navbar a solid magenta to match brand */
+        .nav-cta .btn-primary {
+            background: var(--primary);
+            background-image: none;
+            color: var(--white);
+            box-shadow: 0 6px 18px rgba(236,0,140,0.18);
+            padding: 12px 26px;
+        }
+
+        .nav-cta .btn-primary:hover {
+            transform: translateY(-2px);
+            filter: brightness(0.95);
+        }
+
+        /* Active nav link uses magenta, hover uses purple for a mixed palette */
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 700;
         }
 
         .mobile-menu-btn {
@@ -173,9 +215,15 @@
         /* Page Hero */
         .page-hero {
             padding: 160px 0 80px;
-            background: var(--gradient);
+            /* photographic hero: dark overlay for readable white text */
+            /* encode space in filename to avoid path issues in some browsers */
+            background-image: linear-gradient(rgba(13,15,46,0.55), rgba(13,15,46,0.55)), url("assets/features%20voip.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: var(--white);
             text-align: center;
+            position: relative;
         }
 
         .page-hero h1 {
@@ -188,7 +236,7 @@
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255,255,255,0.9);
         }
 
         /* Features Detail Section */
@@ -365,20 +413,35 @@
         /* CTA Section */
         .cta-section {
             padding: 100px 0;
-            background: var(--gradient);
-            color: var(--white);
+            /* subtle, calm background that ties to brand magenta without being flashy */
+            background: linear-gradient(180deg, rgba(236,0,140,0.04) 0%, rgba(255,255,255,1) 100%);
+            color: var(--secondary);
             text-align: center;
         }
 
         .cta-section h2 {
-            color: var(--white);
+            color: var(--secondary);
             margin-bottom: 1.5rem;
         }
 
         .cta-section p {
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--dark-gray);
             max-width: 600px;
             margin: 0 auto 2.5rem;
+        }
+
+        /* Make CTA button in the section match the nav magenta style */
+        .cta-section .btn-primary {
+            background: var(--primary);
+            background-image: none;
+            color: var(--white);
+            box-shadow: 0 8px 24px rgba(236,0,140,0.18);
+            padding: 14px 32px; /* match general btn sizing */
+        }
+
+        .cta-section .btn-primary:hover {
+            transform: translateY(-2px);
+            filter: brightness(0.95);
         }
 
         /* Footer */
@@ -541,6 +604,69 @@
                 padding: 12px 25px;
             }
         }
+        /* Hero and feature images */
+        .hero-media {
+            position: absolute;
+            right: 40px;
+            top: 110px;
+            width: 420px;
+            pointer-events: none;
+            opacity: 0.95;
+        }
+
+        .hero-media img { width: 100%; height: auto; display: block; }
+
+        .feature-img {
+            width: 160px;
+            height: auto;
+            margin-left: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            background: transparent;
+        }
+
+        /* when used as a full visual, make the image fill the visual-content area */
+        .feature-img.full {
+            width: 100%;
+            height: auto;
+            margin-left: 0;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* full visual: remove card background and let image cover the area */
+        .feature-visual.full {
+            background: transparent;
+            padding: 0;
+            box-shadow: none;
+            border-radius: 0;
+            height: 320px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-visual.full .visual-content { padding: 0; width: 100%; }
+
+        .feature-img.full { height: 100%; width: 100%; object-fit: cover; border-radius: 0; }
+
+        /* hide the faux "window" header when using full-image visuals */
+        .feature-visual.full .visual-header,
+        .feature-visual.full .visual-controls {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .feature-visual.full { height: 220px; }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-media { display: none; }
+            .feature-img { width: 120px; margin-left: 0; margin-top: 18px; }
+            /* keep full visuals full-width on smaller screens */
+            .feature-img.full { width: 100%; margin-top: 18px; }
+        }
     </style>
 </head>
 <body>
@@ -548,7 +674,7 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="home.html" class="logo">We<span>Call</span></a>
+                <a href="home.html" class="logo"><img src="assets/wecall.jpg" alt="WeCall logo"></a>
                 <ul class="nav-links">
                     <li><a href="home.html">Home</a></li>
                     <li><a href="features.html" class="active">Features</a></li>
@@ -556,7 +682,7 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <div class="nav-cta">
-                    <a href="#demo" class="btn btn-primary">Book Demo</a>
+                    <a href="#demo" class="btn btn-primary">Download App</a>
                 </div>
                 <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -571,6 +697,7 @@
             <h1>Powerful VoIP Features</h1>
             <p>Discover how WeCall's advanced features can transform your business communications and drive growth.</p>
         </div>
+        <!-- decorative background is handled via CSS background-image (assets/hero-bg.svg) -->
     </section>
 
     <!-- Features Detail Section -->
@@ -590,7 +717,7 @@
                     </ul>
                 </div>
                 <div class="feature-detail-visual">
-                    <div class="feature-visual">
+                    <div class="feature-visual full">
                         <div class="visual-header">
                             <div class="visual-tabs">
                                 <div class="visual-tab active"></div>
@@ -604,11 +731,8 @@
                             </div>
                         </div>
                         <div class="visual-content">
-                            <i class="fas fa-phone-volume feature-icon-large"></i>
-                            <div>
-                                <h4>IVR Menu</h4>
-                                <p>Press 1 for Sales<br>Press 2 for Support<br>Press 3 for Billing</p>
-                            </div>
+                            <!-- show full IVR image instead of small text/icon so image fills the visual area -->
+                            <img class="feature-img full" src="assets/ivr.jpg" alt="IVR illustration">
                         </div>
                     </div>
                 </div>
@@ -628,7 +752,7 @@
                     </ul>
                 </div>
                 <div class="feature-detail-visual">
-                    <div class="feature-visual">
+                    <div class="feature-visual full">
                         <div class="visual-header">
                             <div class="visual-tabs">
                                 <div class="visual-tab active"></div>
@@ -642,11 +766,8 @@
                             </div>
                         </div>
                         <div class="visual-content">
-                            <i class="fas fa-route feature-icon-large"></i>
-                            <div>
-                                <h4>Call Routing</h4>
-                                <p>Skills-based routing<br>Round-robin distribution<br>Least-recent agent</p>
-                            </div>
+                            <!-- full image for Call Distribution -->
+                            <img class="feature-img full" src="assets/call%20destribution.png" alt="Call Distribution illustration">
                         </div>
                     </div>
                 </div>
@@ -666,7 +787,7 @@
                     </ul>
                 </div>
                 <div class="feature-detail-visual">
-                    <div class="feature-visual">
+                    <div class="feature-visual full">
                         <div class="visual-header">
                             <div class="visual-tabs">
                                 <div class="visual-tab active"></div>
@@ -680,11 +801,8 @@
                             </div>
                         </div>
                         <div class="visual-content">
-                            <i class="fas fa-users feature-icon-large"></i>
-                            <div>
-                                <h4>Call Queue</h4>
-                                <p>5 Calls in queue<br>Estimated wait: 3 min<br>2 agents available</p>
-                            </div>
+                            <!-- full image for Queue Management -->
+                            <img class="feature-img full" src="assets/queue%20management.webp" alt="Queue Management illustration">
                         </div>
                     </div>
                 </div>
@@ -704,7 +822,7 @@
                     </ul>
                 </div>
                 <div class="feature-detail-visual">
-                    <div class="feature-visual">
+                    <div class="feature-visual full">
                         <div class="visual-header">
                             <div class="visual-tabs">
                                 <div class="visual-tab active"></div>
@@ -718,11 +836,8 @@
                             </div>
                         </div>
                         <div class="visual-content">
-                            <i class="fas fa-plug feature-icon-large"></i>
-                            <div>
-                                <h4>CRM Sync</h4>
-                                <p>Automatic Call logging<br>Customer screen pop<br>Click-to-Call integration</p>
-                            </div>
+                            <!-- full image for CRM Integration -->
+                            <img class="feature-img full" src="assets/CRM.png" alt="CRM integration illustration">
                         </div>
                     </div>
                 </div>
@@ -819,7 +934,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <a href="home.html" class="footer-logo">We<span>Call</span></a>
+                    <a href="home.html" class="footer-logo"><img src="assets/wecall.jpg" alt="WeCall logo"></a>
                     <p>Never lose a customer again with WeCall's reliable cloud Calling solutions. Connect with customers anytime, anywhere.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
