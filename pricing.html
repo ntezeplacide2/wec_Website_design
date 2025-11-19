@@ -6,22 +6,21 @@
     <title>Pricing - WeCall VoIP Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #EC008C;
             --secondary: #0D0F2E;
-            --light-gray: #F4F4F6;
-            --medium-gray: #E5E5E7;
-            --dark-gray: #8C8C9A;
+            --accent: #FF3366;
+            --light: #F8F9FA;
+            --dark: #1A1D2E;
             --white: #FFFFFF;
-            --lavender: #E6E6FA;
-            --gradient: linear-gradient(135deg, #EC008C 0%, #8A2BE2 50%, #4B0082 100%);
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
-            --radius: 12px;
-            --radius-lg: 20px;
+            --gradient: linear-gradient(135deg, #EC008C 0%, #FF3366 100%);
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.15);
+            --radius: 16px;
+            --radius-lg: 24px;
         }
 
         * {
@@ -31,37 +30,39 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 16px;
-            line-height: 1.6;
-            color: var(--secondary);
+            line-height: 1.7;
+            color: var(--dark);
             background-color: var(--white);
             overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         h1 {
-            font-size: 3.5rem;
-            letter-spacing: -0.5px;
+            font-size: 4rem;
+            letter-spacing: -1.5px;
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            letter-spacing: -1px;
         }
 
         h3 {
-            font-size: 1.75rem;
+            font-size: 2rem;
         }
 
         p {
             margin-bottom: 1.5rem;
             color: #555;
+            font-weight: 400;
         }
 
         .container {
@@ -72,16 +73,19 @@
         }
 
         .btn {
-            display: inline-block;
-            padding: 14px 32px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: none;
             font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .btn-primary {
@@ -91,7 +95,7 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
         }
 
@@ -104,6 +108,7 @@
         .btn-secondary:hover {
             background: var(--secondary);
             color: var(--white);
+            transform: translateY(-3px);
         }
 
         /* Header & Navigation */
@@ -113,10 +118,11 @@
             left: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
         }
 
         .navbar {
@@ -126,15 +132,19 @@
         }
 
         .logo {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--secondary);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .logo span {
-            color: var(--primary);
+        .logo img {
+            height: 40px;
+            width: auto;
         }
 
         .nav-links {
@@ -143,7 +153,7 @@
         }
 
         .nav-links li {
-            margin-left: 2rem;
+            margin-left: 2.5rem;
         }
 
         .nav-links a {
@@ -151,6 +161,22 @@
             color: var(--secondary);
             font-weight: 500;
             transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
         }
 
         .nav-links a:hover {
@@ -170,67 +196,66 @@
             cursor: pointer;
         }
 
-        /* Page Hero */
+        /* Page Hero - Updated */
         .page-hero {
-            padding: 160px 0 80px;
-            background: var(--gradient);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .page-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--white);
-        }
-
-        .page-hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            color: rgba(255, 255, 255, 0.9);
+            padding: 120px 0 80px; /* Reduced height */
+            position: relative;
+            overflow: hidden;
+            background: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat; /* Removed overlay */
+            min-height: 400px; /* Set a minimum height */
         }
 
         /* Pricing Section */
         .pricing-section {
-            padding: 100px 0;
-            background: var(--light-gray);
+            padding: 120px 0;
+            background: var(--light);
         }
 
         .section-header {
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
+            max-width: 800px;
+            margin: 0 auto 5rem;
         }
 
         .section-header h2 {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
         }
 
         .pricing-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 40px;
         }
 
         .pricing-card {
             background: var(--white);
             border-radius: var(--radius-lg);
-            padding: 40px 30px;
+            padding: 50px 30px;
             box-shadow: var(--shadow);
             position: relative;
-            transition: transform 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
+            border: 2px solid transparent;
         }
 
         .pricing-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
         }
 
         .pricing-card.popular {
             border: 2px solid var(--primary);
             transform: scale(1.05);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-15px);
         }
 
         .popular-badge {
@@ -240,49 +265,53 @@
             transform: translateX(-50%);
             background: var(--primary);
             color: var(--white);
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 600;
+            box-shadow: var(--shadow);
         }
 
         .pricing-header {
             text-align: center;
             margin-bottom: 30px;
-            border-bottom: 1px solid var(--medium-gray);
-            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 25px;
         }
 
         .pricing-name {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
         }
 
         .pricing-price {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 3rem;
+            font-weight: 800;
             color: var(--primary);
             margin-bottom: 5px;
         }
 
         .pricing-period {
-            color: var(--dark-gray);
+            color: var(--dark);
+            font-size: 1rem;
         }
 
         .pricing-description {
-            color: var(--dark-gray);
-            font-size: 0.9rem;
+            color: var(--dark);
+            font-size: 1rem;
+            margin-top: 10px;
         }
 
         .pricing-features {
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             flex-grow: 1;
         }
 
         .pricing-features li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--medium-gray);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             display: flex;
             align-items: center;
         }
@@ -293,7 +322,8 @@
 
         .pricing-features li i {
             color: var(--primary);
-            margin-right: 10px;
+            margin-right: 12px;
+            font-size: 1.1rem;
         }
 
         .pricing-cta {
@@ -302,55 +332,75 @@
 
         /* Add-ons Section */
         .addons-section {
-            padding: 100px 0;
+            padding: 120px 0;
+            background: var(--white);
         }
 
         .addons-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            gap: 40px;
         }
 
         .addon-card {
             background: var(--white);
             border-radius: var(--radius-lg);
-            padding: 30px;
+            padding: 40px 30px;
             box-shadow: var(--shadow);
             display: flex;
             align-items: flex-start;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .addon-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
         }
 
         .addon-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--lavender);
-            border-radius: 15px;
+            width: 70px;
+            height: 70px;
+            background: var(--light);
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
+            margin-right: 25px;
             flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .addon-card:hover .addon-icon {
+            background: var(--primary);
         }
 
         .addon-icon i {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        .addon-card:hover .addon-icon i {
+            color: var(--white);
         }
 
         .addon-content h3 {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            color: var(--secondary);
         }
 
         .addon-price {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--primary);
-            margin-top: 10px;
+            margin-top: 15px;
+            font-size: 1.2rem;
         }
 
         /* Comparison Section */
         .comparison-section {
-            padding: 100px 0;
-            background: var(--light-gray);
+            padding: 120px 0;
+            background: var(--light);
         }
 
         .comparison-table {
@@ -363,15 +413,16 @@
         }
 
         .comparison-table th, .comparison-table td {
-            padding: 20px;
+            padding: 25px 20px;
             text-align: center;
-            border-bottom: 1px solid var(--medium-gray);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .comparison-table th {
             background: var(--secondary);
             color: var(--white);
             font-weight: 600;
+            font-size: 1.1rem;
         }
 
         .comparison-table tr:last-child td {
@@ -385,54 +436,67 @@
 
         .comparison-table .check {
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         .comparison-table .cross {
-            color: var(--dark-gray);
-            font-size: 1.2rem;
+            color: #ccc;
+            font-size: 1.3rem;
         }
 
         /* FAQ Section */
         .faq-section {
-            padding: 100px 0;
+            padding: 120px 0;
+            background: var(--white);
         }
 
         .faq-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .faq-item {
             background: var(--white);
             border-radius: var(--radius);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             overflow: hidden;
             box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-hover);
         }
 
         .faq-question {
-            padding: 20px 25px;
+            padding: 25px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
             font-weight: 600;
+            color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
         }
 
         .faq-question i {
             transition: transform 0.3s ease;
+            color: var(--primary);
         }
 
         .faq-answer {
-            padding: 0 25px;
+            padding: 0 30px;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
+            transition: max-height 0.5s ease, padding 0.3s ease;
         }
 
         .faq-item.active .faq-answer {
-            padding: 0 25px 25px;
+            padding: 0 30px 30px;
             max-height: 500px;
         }
 
@@ -442,7 +506,7 @@
 
         /* CTA Section */
         .cta-section {
-            padding: 100px 0;
+            padding: 120px 0;
             background: var(--gradient);
             color: var(--white);
             text-align: center;
@@ -463,28 +527,30 @@
         footer {
             background: var(--secondary);
             color: var(--white);
-            padding: 80px 0 30px;
+            padding: 100px 0 40px;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 50px;
+            gap: 50px;
+            margin-bottom: 60px;
         }
 
         .footer-column h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 25px;
             color: var(--white);
         }
 
         .footer-logo {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 20px;
             display: block;
+            color: var(--white);
+            text-decoration: none;
         }
 
         .footer-logo span {
@@ -501,7 +567,7 @@
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .footer-links a {
@@ -520,8 +586,8 @@
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
@@ -529,11 +595,12 @@
             justify-content: center;
             color: var(--white);
             text-decoration: none;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .social-link:hover {
             background: var(--primary);
+            transform: translateY(-3px);
         }
 
         .footer-bottom {
@@ -546,11 +613,11 @@
         /* Responsive Styles */
         @media (max-width: 1024px) {
             h1 {
-                font-size: 3rem;
+                font-size: 3.2rem;
             }
             
             h2 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .pricing-cards {
@@ -559,6 +626,10 @@
             
             .pricing-card.popular {
                 transform: scale(1);
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-15px);
             }
             
             .addons-grid {
@@ -583,8 +654,8 @@
                 display: block;
             }
             
-            .page-hero h1 {
-                font-size: 2.5rem;
+            .page-hero {
+                min-height: 300px;
             }
             
             .pricing-cards {
@@ -603,73 +674,65 @@
 
         @media (max-width: 480px) {
             h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             h2 {
-                font-size: 1.8rem;
-            }
-            
-            .page-hero h1 {
                 font-size: 2rem;
             }
             
+            .page-hero {
+                min-height: 250px;
+                padding: 100px 0 60px;
+            }
+            
             .btn {
-                padding: 12px 25px;
+                padding: 14px 28px;
+            }
+            
+            .addon-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .addon-icon {
+                margin-right: 0;
+                margin-bottom: 20px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header & Navigation -->
- <header>
-    <div class="container">
-        <nav class="navbar">
-            <a href="home.html" class="logo">
-                <!-- SVG Logo -->
-                <svg width="140" height="40" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Background Circle -->
-                    <circle cx="20" cy="20" r="18" fill="url(#gradient)"/>
-                    <!-- Phone Icon -->
-                    <path d="M14 12C14 10.8954 14.8954 10 16 10H24C25.1046 10 26 10.8954 26 12V28C26 29.1046 25.1046 30 24 30H16C14.8954 30 14 29.1046 14 28V12Z" fill="white"/>
-                    <path d="M18 12H22V11H18V12ZM19 29H21V30H19V29Z" fill="white"/>
-                    <!-- Sound Waves -->
-                    <path d="M30 15H32V25H30V15Z" fill="#EC008C"/>
-                    <path d="M34 12H36V28H34V12Z" fill="#EC008C"/>
-                    <path d="M38 10H40V30H38V10Z" fill="#EC008C"/>
-                    <!-- Wecall Text -->
-                    <text x="50" y="26" font-family="Poppins, sans-serif" font-weight="800" font-size="20" fill="#0D0F2E">Wecall</text>
-                    <defs>
-                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#EC008C"/>
-                            <stop offset="50%" stop-color="#8A2BE2"/>
-                            <stop offset="100%" stop-color="#4B0082"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </a>
-            <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="pricing.html" class="active">Pricing</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="nav-cta">
-                <a href="demo.html" class="btn btn-primary">Book Demo</a>
-            </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </div>
-</header>
-
-    <!-- Page Hero -->
-    <section class="page-hero">
+    <header>
         <div class="container">
-            <h1>Simple, Transparent Pricing</h1>
-            <p>Choose the perfect plan for your business with no hidden fees. All plans include core VoIP features.</p>
+            <nav class="navbar">
+                <a href="home.html" class="logo">
+                    <!-- Replace with your local logo.png image -->
+                    <img src="logo.png" alt="WeCall Logo" onerror="this.innerHTML='We<span>Call</span>'">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html" class="active">Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="demo.html" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Download App
+                    </a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
         </div>
+    </header>
+
+    <!-- Page Hero - Updated -->
+    <section class="page-hero">
+        <!-- Removed all text content -->
     </section>
 
     <!-- Pricing Section -->
@@ -778,7 +841,7 @@
                     </div>
                     <div class="addon-content">
                         <h3>Additional Phone Lines</h3>
-                        <p>Add extra phone lines to handle higher Call volumes and scale your business communications.</p>
+                        <p>Add extra phone lines to handle higher call volumes and scale your business communications.</p>
                         <div class="addon-price">Starting at RWF5,000/month per line</div>
                     </div>
                 </div>
@@ -804,12 +867,12 @@
                 </div>
                 <div class="addon-card">
                     <div class="addon-icon">
-                        <i class="fas fa-cloud-upload-alt"></i>
+                        <i class="fas fa-plug"></i>
                     </div>
                     <div class="addon-content">
-                        <h3>Extended Call Recording</h3>
-                        <p>Store Call recordings for longer periods with advanced search and playback capabilities.</p>
-                        <div class="addon-price">RWF7,500/month</div>
+                        <h3>CRM Integration</h3>
+                        <p>Seamless integration with popular CRM platforms and custom API options for proprietary systems.</p>
+                        <div class="addon-price">RWF12,000/month</div>
                     </div>
                 </div>
             </div>
@@ -964,7 +1027,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <a href="home.html" class="footer-logo">We<span>Call</span></a>
-                    <p>Never lose a customer again with WeCall's reliable cloud Calling solutions. Connect with customers anytime, anywhere.</p>
+                    <p>Never lose a customer again with WeCall's reliable cloud calling solutions. Connect with customers anytime, anywhere.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -993,15 +1056,15 @@
                 <div class="footer-column">
                     <h3>Contact</h3>
                     <ul class="footer-links">
-                        <li><a href="#">MPC Plaza, Floor 8</a></li>
-                        <li><a href="#">+1 (555) 123-4567</a></li>
-                        <li><a href="#">info@WeCall.com</a></li>
-                        <li><a href="#">Sales: sales@WeCall.com</a></li>
+                        <li><a href="#">Kigali Heights, Floor 5</a></li>
+                        <li><a href="#">+250 788 123 456</a></li>
+                        <li><a href="#">info@wecall.rw</a></li>
+                        <li><a href="#">Sales: sales@wecall.rw</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 WeCall. All rights reserved.</p>
+                <p>&copy; 2023 WeCall Rwanda. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1021,8 +1084,9 @@
         const navCta = document.querySelector('.nav-cta');
 
         mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            navCta.style.display = navCta.style.display === 'block' ? 'none' : 'block';
+            const isVisible = navLinks.style.display === 'flex';
+            navLinks.style.display = isVisible ? 'none' : 'flex';
+            navCta.style.display = isVisible ? 'none' : 'block';
         });
 
         // Smooth scrolling for anchor links
@@ -1041,6 +1105,18 @@
                     });
                 }
             });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '20px 0';
+                header.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.08)';
+            }
         });
     </script>
 </body>
