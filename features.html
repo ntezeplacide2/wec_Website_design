@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - WeCall VoIP Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #EC008C;
+            --secondary: #0D0F2E;
+            --light-gray: #F4F4F6;
+            --medium-gray: #E5E5E7;
+            --dark-gray: #8C8C9A;
+            --white: #FFFFFF;
+            --lavender: #E6E6FA;
+            --gradient: linear-gradient(135deg, #EC008C 0%, #8A2BE2 50%, #4B0082 100%);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--secondary);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            margin-left: 2rem;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 160px 0 80px;
+            background: var(--gradient);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Features Detail Section */
+        .features-detail-section {
+            padding: 100px 0;
+        }
+
+        .feature-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .feature-detail:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-detail-content {
+            flex: 1;
+            padding: 0 40px;
+        }
+
+        .feature-detail-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .feature-visual {
+            width: 100%;
+            max-width: 400px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .visual-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .visual-tabs {
+            display: flex;
+        }
+
+        .visual-tab {
+            width: 12px;
+            height: 4px;
+            background: var(--medium-gray);
+            border-radius: 2px;
+            margin-right: 4px;
+        }
+
+        .visual-tab.active {
+            background: var(--primary);
+        }
+
+        .visual-controls {
+            display: flex;
+        }
+
+        .visual-control {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-left: 4px;
+        }
+
+        .visual-control:nth-child(1) {
+            background: #FF5F57;
+        }
+
+        .visual-control:nth-child(2) {
+            background: #FFBD2E;
+        }
+
+        .visual-control:nth-child(3) {
+            background: #28CA42;
+        }
+
+        .visual-content {
+            width: 100%;
+            height: 200px;
+            background: var(--light-gray);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .feature-icon-large {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-right: 15px;
+        }
+
+        .feature-tagline {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .feature-benefits {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .feature-benefits li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-benefits li i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        /* Features Overview */
+        .features-overview {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--lavender);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--gradient);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--white);
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .feature-detail {
+                flex-direction: column;
+                margin-bottom: 70px;
+            }
+            
+            .feature-detail:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .feature-detail-content {
+                padding: 0;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                position: relative;
+            }
+            
+            .nav-links, .nav-cta {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="home.html" class="logo">We<span>Call</span></a>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="features.html" class="active">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="#demo" class="btn btn-primary">Book Demo</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Powerful VoIP Features</h1>
+            <p>Discover how WeCall's advanced features can transform your business communications and drive growth.</p>
+        </div>
+    </section>
+
+    <!-- Features Detail Section -->
+    <section class="features-detail-section">
+        <div class="container">
+            <!-- IVR Feature -->
+            <div class="feature-detail">
+                <div class="feature-detail-content">
+                    <h2>IVR System</h2>
+                    <p class="feature-tagline">Automated Call routing for efficient customer service</p>
+                    <p>Our Interactive Voice Response (IVR) system allows Callers to interact with your phone system through voice commands or keypad inputs, directing them to the right department or information without human intervention.</p>
+                    <ul class="feature-benefits">
+                        <li><i class="fas fa-check"></i> 24/7 automated customer service</li>
+                        <li><i class="fas fa-check"></i> Reduce Call handling time by up to 40%</li>
+                        <li><i class="fas fa-check"></i> Customizable menu options and prompts</li>
+                        <li><i class="fas fa-check"></i> Seamless integration with your CRM</li>
+                    </ul>
+                </div>
+                <div class="feature-detail-visual">
+                    <div class="feature-visual">
+                        <div class="visual-header">
+                            <div class="visual-tabs">
+                                <div class="visual-tab active"></div>
+                                <div class="visual-tab"></div>
+                                <div class="visual-tab"></div>
+                            </div>
+                            <div class="visual-controls">
+                                <div class="visual-control"></div>
+                                <div class="visual-control"></div>
+                                <div class="visual-control"></div>
+                            </div>
+                        </div>
+                        <div class="visual-content">
+                            <i class="fas fa-phone-volume feature-icon-large"></i>
+                            <div>
+                                <h4>IVR Menu</h4>
+                                <p>Press 1 for Sales<br>Press 2 for Support<br>Press 3 for Billing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call Distribution Feature -->
+            <div class="feature-detail">
+                <div class="feature-detail-content">
+                    <h2>Call Distribution</h2>
+                    <p class="feature-tagline">Intelligent routing for optimal customer experience</p>
+                    <p>Our smart Call distribution system routes incoming Calls based on predefined rules, agent skills, availability, and customer value to ensure every Caller reaches the right person quickly.</p>
+                    <ul class="feature-benefits">
+                        <li><i class="fas fa-check"></i> Route Calls based on agent skills and availability</li>
+                        <li><i class="fas fa-check"></i> Prioritize high-value customers</li>
+                        <li><i class="fas fa-check"></i> Geographic routing based on Caller location</li>
+                        <li><i class="fas fa-check"></i> Time-based routing for after-hours Calls</li>
+                    </ul>
+                </div>
+                <div class="feature-detail-visual">
+                    <div class="feature-visual">
+                        <div class="visual-header">
+                            <div class="visual-tabs">
+                                <div class="visual-tab active"></div>
+                                <div class="visual-tab"></div>
+                                <div class="visual-tab"></div>
+                            </div>
+                            <div class="visual-controls">
+                                <div class="visual-control"></div>
+                                <div class="visual-control"></div>
+                                <div class="visual-control"></div>
+                            </div>
+                        </div>
+                        <div class="visual-content">
+                            <i class="fas fa-route feature-icon-large"></i>
+                            <div>
+                                <h4>Call Routing</h4>
+                                <p>Skills-based routing<br>Round-robin distribution<br>Least-recent agent</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Queue Management Feature -->
+            <div class="feature-detail">
+                <div class="feature-detail-content">
+                    <h2>Queue Management</h2>
+                    <p class="feature-tagline">Efficient handling of high Call volumes</p>
+                    <p>Manage Call queues effectively with customizable hold messages, position announcements, and estimated wait times to keep customers informed and reduce abandonment rates.</p>
+                    <ul class="feature-benefits">
+                        <li><i class="fas fa-check"></i> Customizable hold messages and music</li>
+                        <li><i class="fas fa-check"></i> Position announcements in queue</li>
+                        <li><i class="fas fa-check"></i> Callback option to avoid waiting</li>
+                        <li><i class="fas fa-check"></i> Real-time queue monitoring for supervisors</li>
+                    </ul>
+                </div>
+                <div class="feature-detail-visual">
+                    <div class="feature-visual">
+                        <div class="visual-header">
+                            <div class="visual-tabs">
+                                <div class="visual-tab active"></div>
+                                <div class="visual-tab"></div>
+                                <div class="visual-tab"></div>
+                            </div>
+                            <div class="visual-controls">
+                                <div class="visual-control"></div>
+                                <div class="visual-control"></div>
+                                <div class="visual-control"></div>
+                            </div>
+                        </div>
+                        <div class="visual-content">
+                            <i class="fas fa-users feature-icon-large"></i>
+                            <div>
+                                <h4>Call Queue</h4>
+                                <p>5 Calls in queue<br>Estimated wait: 3 min<br>2 agents available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CRM Integration Feature -->
+            <div class="feature-detail">
+                <div class="feature-detail-content">
+                    <h2>CRM Integration</h2>
+                    <p class="feature-tagline">Seamless connection with your business tools</p>
+                    <p>Integrate WeCall with your existing CRM to automatiCally log Calls, access customer information during conversations, and sync data across platforms for a unified customer view.</p>
+                    <ul class="feature-benefits">
+                        <li><i class="fas fa-check"></i> Automatic Call logging in CRM</li>
+                        <li><i class="fas fa-check"></i> Screen pop with customer information</li>
+                        <li><i class="fas fa-check"></i> Click-to-Call from CRM records</li>
+                        <li><i class="fas fa-check"></i> Support for Salesforce, HubSpot, Zoho and more</li>
+                    </ul>
+                </div>
+                <div class="feature-detail-visual">
+                    <div class="feature-visual">
+                        <div class="visual-header">
+                            <div class="visual-tabs">
+                                <div class="visual-tab active"></div>
+                                <div class="visual-tab"></div>
+                                <div class="visual-tab"></div>
+                            </div>
+                            <div class="visual-controls">
+                                <div class="visual-control"></div>
+                                <div class="visual-control"></div>
+                                <div class="visual-control"></div>
+                            </div>
+                        </div>
+                        <div class="visual-content">
+                            <i class="fas fa-plug feature-icon-large"></i>
+                            <div>
+                                <h4>CRM Sync</h4>
+                                <p>Automatic Call logging<br>Customer screen pop<br>Click-to-Call integration</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Overview -->
+    <section class="features-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Complete Feature Set</h2>
+                <p>Explore all the capabilities that make WeCall the perfect VoIP solution for your business.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h3>Blacklist</h3>
+                    <p>Block unwanted Calls from specific numbers to maintain productivity and security.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-fax"></i>
+                    </div>
+                    <h3>Digital Fax</h3>
+                    <p>Send and receive faxes digitally without the need for physical fax machines or paper.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Call Reports</h3>
+                    <p>Comprehensive analytics and reporting to track performance and identify trends.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-voicemail"></i>
+                    </div>
+                    <h3>Voicemail</h3>
+                    <p>Professional voicemail with transcription, email delivery, and customizable greetings.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-share-square"></i>
+                    </div>
+                    <h3>Call Forwarding</h3>
+                    <p>Redirect Calls to any device or number based on time, location, or availability.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Call Transfer</h3>
+                    <p>Seamlessly transfer Calls between team members with warm or cold transfer options.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile & Desktop Apps</h3>
+                    <p>Stay connected with native apps for iOS, Android, Windows, and macOS.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Call Statistics</h3>
+                    <p>Real-time dashboards and historical reports to monitor Call center performance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Branded Apps</h3>
+                    <p>Customize mobile and desktop apps with your company branding for a seamless experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Business Communications?</h2>
+            <p>See how WeCall's powerful features can help your business never lose a customer again.</p>
+            <a href="contact.html" class="btn btn-primary">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="home.html" class="footer-logo">We<span>Call</span></a>
+                    <p>Never lose a customer again with WeCall's reliable cloud Calling solutions. Connect with customers anytime, anywhere.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">MPC Plaza, Floor 8</a></li>
+                        <li><a href="#">+1 (555) 123-4567</a></li>
+                        <li><a href="#">info@WeCall.com</a></li>
+                        <li><a href="#">Sales: sales@WeCall.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 WeCall. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const navCta = document.querySelector('.nav-cta');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navCta.style.display = navCta.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
